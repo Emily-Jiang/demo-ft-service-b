@@ -23,7 +23,7 @@
  *
  *******************************************************************************/
 
-package org.eclipse.microprofile.servicemesh.serviceb;
+package org.eclipse.microprofile.ft.serviceb;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

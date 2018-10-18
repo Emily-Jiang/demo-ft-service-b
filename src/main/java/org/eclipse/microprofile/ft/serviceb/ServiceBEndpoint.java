@@ -23,9 +23,8 @@
  *
  *******************************************************************************/
 
-package org.eclipse.microprofile.servicemesh.serviceb;
+package org.eclipse.microprofile.ft.serviceb;
 
-import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -39,15 +38,18 @@ public class ServiceBEndpoint {
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
-    public String callPlainText() throws Exception {
+    public String callMe() throws Exception {
 
         count++;
-        if (count %8 >3) {
-        return "Hello Fault Tolerance from Service B";
-        }
-        else {
-
-            throw new Exception("I'm tired!");
+        
+        if ((count %10 >3) && (count %10 <7)){
+        	//x4, x5, x6 will succeed
+        	return "I'm happy from Service B. Invocation count: " + count;
+        } else if (count % 10 >=7 ) {
+        	Thread.sleep(5000);//sleep for 8s
+            return "I'm happy from Service B. Invocation count:" + count;
+        } else {
+        	throw new Exception("I'm tired! Invocation count" + count);
         }
         
     }
