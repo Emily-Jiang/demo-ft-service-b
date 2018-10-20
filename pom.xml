@@ -128,7 +128,7 @@
                 <default.http.port>${default.http.port}</default.http.port>
                 <default.https.port>${default.https.port}</default.https.port>
               </bootstrapProperties>
-              <looseApplication>false</looseApplication>
+              <looseApplication>true</looseApplication>
             </configuration>
             <executions>
               <execution>

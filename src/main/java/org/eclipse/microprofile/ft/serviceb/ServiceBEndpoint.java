@@ -46,10 +46,10 @@ public class ServiceBEndpoint {
             //x4, x5, x6 will succeed
             return "I'm happy from Service B. Invocation count: " + count;
         } else if (count % 10 >=7 ) {
-            Thread.sleep(5000);//sleep for 8s
-            return "I'm happy from Service B. Invocation count:" + count;
+            Thread.sleep(3000);//sleep for 8s
+            return "I'm slow from Service B. Invocation count:" + count;
         } else {
-            throw new TiredException("I'm tired! Invocation count" + count);
+            throw new Exception("Internal Server Error: I'm tired! Invocation count" + count);
         }
         
     }
